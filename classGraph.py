@@ -25,6 +25,10 @@ class Graph:
                         x2 = j[0]
                         y2 = j[1]
                         n = self.coord[(x2,y2)]
-                        self.g[m].append(n)
-                        self.g[n].append(m)
+                        if(not (n in self.g[m]) and m is not n):
+                            self.g[m].append(n)
+                            self.g[n].append(m)
+                        elif(not (n in self.g[m])):
+                            self.g[m].append(n)
+                        print(self.g)
                         return (x1,y1,x2,y2)
